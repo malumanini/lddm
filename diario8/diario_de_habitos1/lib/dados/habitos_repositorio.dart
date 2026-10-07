@@ -38,4 +38,9 @@ class HabitosRepositorio {
   Future<void> remover(Habito h) async {
     _memoria.remove(h);
   }
+
+  Future<void> priorizar(Habito h) async {
+    _memoria.remove(h);
+    _memoria.insert(0, h);
+  }
 }

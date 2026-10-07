@@ -26,4 +26,10 @@ class HabitosStore extends ChangeNotifier {
     _habitos = await _repo.carregar();
     notifyListeners();
   }
+
+  Future<void> priorizar(Habito h) async {
+    await _repo.priorizar(h);
+    _habitos = await _repo.carregar();
+    notifyListeners();
+  }
 }

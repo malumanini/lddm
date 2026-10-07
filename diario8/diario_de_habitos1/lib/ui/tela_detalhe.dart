@@ -174,6 +174,21 @@ class TelaDetalhe extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: SizedBox(
+                width: double.infinity,
+                child: FilledButton(
+                  onPressed: () async {
+                    await context.read<HabitosStore>().priorizar(habito);
+                    if (!context.mounted) return;
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Priorizar'),
+                ),
+              ),
+            ),
             const SizedBox(height: 24),
           ],
         ),
