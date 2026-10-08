@@ -15,6 +15,7 @@ class HabitosStore extends ChangeNotifier {
     notifyListeners();
   }
 
+  // Recarrega depois de salvar: é o banco que gera o id do hábito novo.
   Future<void> adicionar(Habito h) async {
     await _repo.salvar(h);
     _habitos = await _repo.carregar();
@@ -23,13 +24,21 @@ class HabitosStore extends ChangeNotifier {
 
   Future<void> remover(Habito h) async {
     await _repo.remover(h);
-    _habitos = await _repo.carregar();
+    _habitos.remove(h);
     notifyListeners();
   }
 
+  // Mover para o primeiro (só em memória)
   Future<void> priorizar(Habito h) async {
-    await _repo.priorizar(h);
-    _habitos = await _repo.carregar();
+    if (!_habitos.remove(h)) return;
+    _habitos.insert(0, h);
+    notifyListeners();
+  }
+
+  // Mover para o último (só em memória)
+  Future<void> despriorizar(Habito h) async {
+    if (!_habitos.remove(h)) return;
+    _habitos.add(h);
     notifyListeners();
   }
 }
