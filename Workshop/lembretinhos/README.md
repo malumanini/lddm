@@ -13,7 +13,11 @@ atividade exige dispositivo físico ou emulador.
 
 ## Integrantes
 
-Preencha com o nome de cada integrante do grupo.
+Maria Luiza Manini de Oliveira
+Janielly Lorene Talinni dos Santos
+Sarah dos Santos Oliveira
+Davi Lucas Dias Morais
+Alex de Castro Mendes Marques
 
 ## Onde cada exigência do tema está no código
 
@@ -155,15 +159,7 @@ flutter emulators --launch <nome-do-emulador>
   texto e abre a tarefinha certa. Com o app fechado, ele chega por
   `getNotificationAppLaunchDetails`.
 
-## Desafios
 
-Para estudar o código, tente:
-
-1. Trocar o lembrete de 1 minuto para 2 minutos (`lembrarDepois` em `ui/tela_tarefa.dart`).
-2. Deixar o usuário escolher a hora do lembrete diário, com o `showTimePicker`.
-3. Mostrar na tela inicial quantas tarefinhas têm lembrete marcado.
-4. Mudar o id do canal em `dados/notificacoes.dart` e ver o que acontece nas configurações.
-5. Salvar as tarefinhas no aparelho com `shared_preferences`, para não perder ao fechar o app.
 
 ## Detalhes que valem saber
 
