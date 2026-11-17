@@ -1,10 +1,10 @@
 # Lembretinhos 🎀
 
-Diário de tarefinhas com lembretes, feito para o **Workshop Técnico (Tema 2: Notificações locais)**
+Diário de tarefas com lembretes, feito para o **Workshop Técnico (Tema 2: Notificações locais)**
 da disciplina Laboratório de Desenvolvimento para Dispositivos Móveis, PUC Minas.
 
-Cada tarefinha pode avisar na hora, daqui a um minuto ou todo dia no mesmo horário. Ao tocar na
-notificação, o app abre direto na tarefinha que avisou.
+Cada tarefa pode avisar na hora, daqui a um minuto ou todo dia no mesmo horário. Ao tocar na
+notificação, o app abre direto na tarefa que avisou.
 
 O projeto roda **no Android e no Chrome**. No Chrome é só a prévia do layout: o pacote
 `flutter_local_notifications` não existe na web, então os lembretes ficam desligados e o app avisa
@@ -41,16 +41,16 @@ lib/
     tarefa.dart                   a classe Tarefa
     payload.dart                  formato e leitura do payload
   dados/
-    tarefa_repositorio.dart       lista de tarefinhas (estado em memória)
+    tarefa_repositorio.dart       lista de tarefas (estado em memória)
     notificacoes.dart             toda a lógica de notificações
   ui/
-    tela_lista.dart               lista de tarefinhas
-    tela_tarefa.dart              tela da tarefinha e botões de lembrete
+    tela_lista.dart               lista de tarefas
+    tela_tarefa.dart              tela da tarefa e botões de lembrete
     tema.dart                     cores e estilo
     widgets/
       fundo_fofo.dart             fundo decorado
-      cartao_tarefa.dart          cartão de uma tarefinha
-      folha_nova_tarefa.dart      folha de adicionar tarefinha
+      cartao_tarefa.dart          cartão de uma tarefa
+      folha_nova_tarefa.dart      folha de adicionar tarefa
 test/payload_test.dart            testes do payload e do repositório
 android_setup/                    manifesto e trecho do Gradle
 ```
@@ -139,10 +139,10 @@ flutter emulators --launch <nome-do-emulador>
 ## Roteiro de teste (no Android)
 
 1. Na tela inicial, toque em **ativar** no cartão de lembretes e aceite a permissão.
-2. Toque em uma tarefinha para abrir a tela dela.
+2. Toque em uma tarefa para abrir a tela dela.
 3. **Lembrar agora**: a notificação aparece na hora.
 4. **Lembrar em 1 minuto**: pode bloquear a tela e esperar.
-5. Toque na notificação: o app abre direto na tarefinha certa.
+5. Toque na notificação: o app abre direto na tarefa certa.
 6. **Em 10 s (feche o app)**: feche o app por completo, espere e toque na notificação.
 7. **Lembrar todo dia às 08:00**: mostra a notificação recorrente.
 8. **Cancelar lembrete**, ou o link no fim da lista, para limpar tudo.
@@ -156,14 +156,14 @@ flutter emulators --launch <nome-do-emulador>
 - **Economia de bateria**: o modo Doze e as otimizações do fabricante podem adiar alarmes
   inexatos. Por isso o app usa agendamento exato quando o usuário permite.
 - **Payload**: texto enviado junto com a notificação. Aqui é `tarefa/<id>`. Ao tocar, o app lê esse
-  texto e abre a tarefinha certa. Com o app fechado, ele chega por
+  texto e abre a tarefa certa. Com o app fechado, ele chega por
   `getNotificationAppLaunchDetails`.
 
 
 
 ## Detalhes que valem saber
 
-- As tarefinhas ficam só na memória: ao fechar o app, a lista volta ao estado inicial. Isso mantém
+- As tarefas ficam só na memória: ao fechar o app, a lista volta ao estado inicial. Isso mantém
   o foco no tema do workshop, e virar persistência é um dos desafios acima.
 - O fuso local está fixo em `America/Sao_Paulo`. Em um app real, descubra o fuso do aparelho com
   um pacote como `flutter_timezone`.
