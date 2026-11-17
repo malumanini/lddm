@@ -1,0 +1,53 @@
+Arquivo: android/app/build.gradle.kts
+
+android {
+    compileSdk = 35
+
+    defaultConfig {
+        multiDexEnabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+        isCoreLibraryDesugaringEnabled = true
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
+}
+
+Observações:
+- O bloco defaultConfig já existe no arquivo gerado pelo Flutter. Adicione só a linha
+  multiDexEnabled dentro dele, em vez de criar outro bloco.
+- Se compileSdk já estiver como flutter.compileSdkVersion e o seu Flutter for recente, pode
+  deixar como está, desde que o valor seja 35 ou mais.
+
+Se o seu projeto usa build.gradle (Groovy) em vez de .kts:
+
+android {
+    compileSdk 35
+
+    defaultConfig {
+        multiDexEnabled true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+        coreLibraryDesugaringEnabled true
+    }
+
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+}
