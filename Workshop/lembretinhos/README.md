@@ -13,11 +13,11 @@ atividade exige dispositivo físico ou emulador.
 
 ## Integrantes
 
-Maria Luiza Manini de Oliveira
-Janielly Lorene Talinni dos Santos
-Sarah dos Santos Oliveira
-Davi Lucas Dias Morais
-Alex de Castro Mendes Marques
+- Maria Luiza Manini de Oliveira
+- Janielly Lorene Talinni dos Santos
+- Sarah dos Santos Oliveira
+- Davi Lucas Dias Morais
+- Alex de Castro Mendes Marques
 
 ## Onde cada exigência do tema está no código
 
